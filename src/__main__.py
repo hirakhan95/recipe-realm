@@ -1,5 +1,5 @@
 import src.sheet_db as db
-from src.utils import Fore, prnt, inpt
+from src.utils import Fore, prnt, inpt, prnt_new_page
 
 RECIPES = db.get_data('recipes')
 
@@ -44,6 +44,7 @@ def print_recipe(n):
     :param n:
     :return:
     """
+    
 
     print(RECIPES[n])
 
@@ -52,6 +53,7 @@ def list_down_recipe():
     is_wrong = False
 
     while True:
+        prnt_new_page()
         #
         prnt(Fore.CYAN, 'HERE ARE THE RECIPES!\n')
         for index, row in enumerate(RECIPES):
@@ -76,12 +78,12 @@ def list_down_recipe():
             #
             if user_input >= 0 and user_input < len(RECIPES):
                 print_recipe(user_input)
+                is_wrong = False
 
             else:
                 is_wrong = True
         except ValueError as e:
             is_wrong = True
-            prnt(Fore.RED, 'Wrong selection')
 
 
 #
