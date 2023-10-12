@@ -1,8 +1,7 @@
-import bdb
-
-import json
-
 import src.sheet_db as db
+from src.utils import Fore, prnt, inpt
+
+RECIPES = db.get_data('recipes')
 
 
 def welcome():
