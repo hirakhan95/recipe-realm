@@ -15,7 +15,18 @@ DOC = GSPREAD_CLIENT.open('recipe_data')
 
 def get_data(sheet):
     sheet = DOC.worksheet(sheet)
-    return sheet.get_all_values()
+    data = sheet.get_all_values()
+
+    result = []
+    for row in data:
+        kurz = []
+        for cell in row:
+            if '|||' in cell:
+                cell = cell.split('|||')
+            kurz.append(cell)
+
+        result.append(kurz)
+    return result
 
 
 def insert_data(sheet_name, data):
