@@ -24,6 +24,35 @@ def welcome():
 welcome()
 
 
+def create_recipe():
+    """ For Ingredients
+    """
+    print('Enter ingredients with correct measurements. Type "done" when done!')
+    string_list = []
+    while True:
+        ingredients = str(input())
+        string_list.append(ingredients)
+
+        if ingredients == 'done':
+            break
+        list_of_ingredients = ' \n'.join(string_list)
+
+    """ For Preparation
+    """
+    print('Enter Preparation method. Press Enter when done!')
+    method_list = []
+    while True:
+        preparation = str(input())
+        method_list.append(preparation)
+
+        if preparation == '':
+            break
+        method_description = ' \n'.join(method_list)
+
+    print(f'INGREDIENTS:\n{list_of_ingredients}\n')
+    print(f'PREPARATION:\n{method_description}')
+
+
 def main_menu():
     print("""RECIPE REALM
     1. Search Recipes   -- type 'search' to search the recipes
@@ -32,5 +61,7 @@ def main_menu():
     4. Favorite Recipes -- type 'favorite' to heart the recipes
     """)
     user_option = input('select your option: ')
+    if user_option == 'create':
+        create_recipe()
 
 main_menu()
