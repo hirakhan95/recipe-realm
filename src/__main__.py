@@ -1,17 +1,8 @@
-import gspread
-from google.oauth2.service_account import Credentials
-from pprint import pprint
+import bdb
 
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-]
+import json
 
-CREDS = Credentials.from_service_account_file('../creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-DOC = GSPREAD_CLIENT.open('recipe_data')
+import src.sheet_db as db
 
 
 def welcome():
@@ -49,7 +40,7 @@ def create_recipe():
 
 
 def list_down_recipe():
-    data = DOC.worksheet('recipes').get_all_values()
+    data = db.get_data('recipes')
 
     for row in data:
         print(row)
@@ -76,23 +67,37 @@ def main_menu():
 
     # @Todo: Write all available functions in while loop
 
-    user_option = input('select your option: ') ## Input will always be str by default
+    while True:
+        user_option = input('select your option: ')  ## Input will always be str by default
 
-    if user_option == '3':
-        create_recipe()
+        if user_option == '1':
+            list_down_recipe()
 
-    elif user_option == '2':
-        list_down_recipe()
+        elif user_option == '2':
+            create_recipe()
 
-    # elif user_option == 'search':
+        else:
+            print("Invalid option. Exiting.")
+            break
+
+    # elif user_option == '3':
     #     search_recipe()
     #
-    # elif user_option == 'favorite' or 'favourite':
+    # elif user_option == '4':
     #     favorite_recipe()
 
 
 if __name__ == "__main__":
     # welcome()
-    # main_menu()
+    main_menu()
 
-    list_down_recipe()
+    # list_down_recipe()
+    # data = [
+    #     ['Biryani', json.dumps({
+    #         'ingredients': ['Rice', 'Chawal', 'Oil'],
+    #         'method': ['Rice', 'Chawal', 'Oil']
+    #     })],
+    #     ['Hira', 27, 'Expert programmer']
+    # ]
+    # db.insert_data('abc', data)
+    # print(db.get_data('abc'))
