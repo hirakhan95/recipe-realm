@@ -12,7 +12,13 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('recipe_data')
 
-recipes = SHEET.worksheet('recipes')
+# recipes = SHEET.worksheet('recipes')
+# data = recipes.get_all_values()
+# print(data)
 
-data = recipes.get_all_values()
-print(data)
+
+def welcome():
+    user_name = str(input('Hey there! Enter your name: '))
+    print(f"Welcome, {user_name} to the Recipe Realm!\nWhere Flavors Find a Home :)")
+
+welcome()
