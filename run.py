@@ -57,6 +57,12 @@ def list_down_recipe(recipe_list):
     return recipe_list
 
 
+def search_recipe():
+    user_string = str(input('What are you looking for? '))
+    if user_string == "pasta" or "Pasta":
+        print("hello")
+
+
 def main_menu():
     print("""RECIPE REALM
     1. Search Recipes   -- type 'search' to search the recipes
@@ -71,5 +77,7 @@ def main_menu():
     elif user_option == 'list':
         list_down_recipe()
 
+    elif user_option == 'search':
+        search_recipe()
 
 main_menu()
