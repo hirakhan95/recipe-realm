@@ -69,8 +69,19 @@ def list_down_recipe():
         if user_input == 'r' or user_input == 'R':
             return
 
-    for row in data:
-        print(row)
+        try:
+            #
+            user_input = int(user_input)
+
+            #
+            if user_input >= 0 and user_input < len(RECIPES):
+                print_recipe(user_input)
+
+            else:
+                is_wrong = True
+        except ValueError as e:
+            is_wrong = True
+            prnt(Fore.RED, 'Wrong selection')
 
 
 #
