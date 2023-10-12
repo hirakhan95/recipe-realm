@@ -63,6 +63,10 @@ def search_recipe():
         print("hello")
 
 
+def favorite_recipe(fav_recipe):
+    return fav_recipe
+
+
 def main_menu():
     print("""RECIPE REALM
     1. Search Recipes   -- type 'search' to search the recipes
@@ -79,5 +83,9 @@ def main_menu():
 
     elif user_option == 'search':
         search_recipe()
+
+    elif user_option == 'favorite' or 'favourite':
+        favorite_recipe()
+
 
 main_menu()
