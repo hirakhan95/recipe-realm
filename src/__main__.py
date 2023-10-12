@@ -127,9 +127,9 @@ def main_menu():
 
 if __name__ == "__main__":
     # welcome()
-    main_menu()
+    # main_menu()
 
-    # list_down_recipe()
+    list_down_recipe()
     # data = [
     #     ['Biryani', json.dumps({
     #         'ingredients': ['Rice', 'Chawal', 'Oil'],
