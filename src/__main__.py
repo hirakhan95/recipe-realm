@@ -41,12 +41,44 @@ def create_recipe():
 def print_recipe(n):
     """
 
-    :param n:
-    :return:
+    :param n: list
+    :return: sring
     """
-    
+    recipe = RECIPES[n]
+    is_wrong = False
 
-    print(RECIPES[n])
+    # start a while loop
+    while True:
+
+        # print recipe Recipe name, Author name, Ingredients, Preparation
+        prnt_new_page()
+
+        prnt(Fore.CYAN, 'Recipe Name:')
+        prnt(Fore.BLUE, recipe[0], '\n')
+
+        prnt(Fore.CYAN, 'Author Name:')
+        prnt(Fore.BLUE, recipe[1], '\n')
+
+        prnt(Fore.CYAN, 'Ingredients:')
+        for element in recipe[2]:
+            prnt(Fore.BLUE, element)
+
+        print('')
+
+        prnt(Fore.CYAN, 'Preparation:')
+        for element in recipe[3]:
+            prnt(Fore.BLUE, element)
+
+        if is_wrong:
+            prnt(Fore.RED, '\n', 'Wrong selection')
+
+        # take an input from user r or R to exit from function
+        user_input = inpt(Fore.GREEN, 'Enter r\R to return: ')
+        if user_input == 'r' or user_input == 'R':
+            return
+
+        is_wrong = True
+
 
 
 def list_down_recipe():
@@ -105,9 +137,8 @@ def main_menu():
     4. Favorite Recipes -- type 'favorite' to heart the recipes
     """)
 
-    # @Todo: Write all available functions in while loop
-
     while True:
+
         user_option = input('select your option: ')  ## Input will always be str by default
 
         if user_option == '1':
