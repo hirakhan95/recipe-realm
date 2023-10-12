@@ -19,14 +19,33 @@ def get_data(sheet):
 
 
 def insert_data(sheet_name, data):
+    """
+
+    :param sheet_name: worksheet from google
+    :param data: i.e. [['asd', ['ingredient 1', 'ingredient 2']]]
+    :return: None
+    """
+
     try:
         sheet = DOC.worksheet(sheet_name)
     except:
-        DOC.add_worksheet(sheet_name, 10000, 100)
+        DOC.add_worksheet(sheet_name, 2000, 10)
         sheet = DOC.worksheet(sheet_name)
 
     clear_data(sheet)
+
+    # Making it compatible
+    data_in_insert = []
     for row in data:
+        temp = []
+        for cell in row:
+            if type(cell) == list:
+                cell = '|||'.join(cell)
+            temp.append(cell)
+        data_in_insert.append(temp)
+
+    # Insert in to sheet
+    for row in data_in_insert:
         sheet.append_row(row)
 
 
