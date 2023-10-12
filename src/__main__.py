@@ -38,6 +38,16 @@ def create_recipe():
     print(f'PREPARATION:\n{method_description}')
 
 
+def print_recipe(n):
+    """
+
+    :param n:
+    :return:
+    """
+
+    print(RECIPES[n])
+
+
 def list_down_recipe():
     data = db.get_data('recipes')
 
