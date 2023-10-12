@@ -22,3 +22,15 @@ def welcome():
     print(f"Welcome, {user_name} to the Recipe Realm!\nWhere Flavors Find a Home :)")
 
 welcome()
+
+
+def main_menu():
+    print("""RECIPE REALM
+    1. Search Recipes   -- type 'search' to search the recipes
+    2. List Recipes     -- type 'list' to list down the recipes
+    3. Create Recipes   -- type 'create' to create the recipes
+    4. Favorite Recipes -- type 'favorite' to heart the recipes
+    """)
+    user_option = input('select your option: ')
+
+main_menu()
