@@ -53,19 +53,19 @@ def print_recipe(n):
         # print recipe Recipe name, Author name, Ingredients, Preparation
         prnt_new_page()
 
-        prnt(Fore.CYAN, 'Recipe Name:')
-        prnt(Fore.BLUE, recipe[0], '\n')
+        prnt(Fore.CYAN, f'{recipe[0]} Recipe')
+        print('')
 
-        prnt(Fore.CYAN, 'Author Name:')
+        prnt(Fore.MAGENTA, 'Author Name:')
         prnt(Fore.BLUE, recipe[1], '\n')
 
-        prnt(Fore.CYAN, 'Ingredients:')
+        prnt(Fore.MAGENTA, 'Ingredients:')
         for element in recipe[2]:
             prnt(Fore.BLUE, element)
 
         print('')
 
-        prnt(Fore.CYAN, 'Preparation:')
+        prnt(Fore.MAGENTA, 'Preparation:')
         for element in recipe[3]:
             prnt(Fore.BLUE, element)
 
@@ -118,57 +118,58 @@ def list_down_recipe():
             is_wrong = True
 
 
-#
-# def search_recipe():
-#     user_string = str(input('What are you looking for? '))
-#     if user_string == "pasta" or "Pasta":
-#         print("hello")
-#
-#
-# def favorite_recipe(fav_recipe):
-#     return fav_recipe
-#
+def search_recipe():
+    # user_string = str(input('What are you looking for? '))
+    # if user_string == "pasta" or "Pasta":
+    #     print("hello")
+    pass
+
+
+def delete_recipe():
+    pass
+
 
 def main_menu():
-    print("""RECIPE REALM
-    1. Search Recipes   -- type 'search' to search the recipes
-    2. List Recipes     -- type 'list' to list down the recipes
-    3. Create Recipes   -- type 'create' to create the recipes
-    4. Favorite Recipes -- type 'favorite' to heart the recipes
-    """)
 
+    wrong_answer = False
     while True:
+        # print new page ---done
+        # remove break --done
+        # @take input 1 2 3 4 for search, list, create, delete -- done
+        # take an input from user r or R to exit from function
+        prnt_new_page()
+        prnt(Fore.CYAN, 'MAIN MENU')
+        print('')
+        prnt(Fore.BLUE, "1. List Recipes\n2. Create Recipes\n3. Search Recipes\n4. Delete Recipes")
 
-        user_option = input('select your option: ')  ## Input will always be str by default
+        prnt(Fore.LIGHTYELLOW_EX, 'Press e/E to Exit\n')
+
+        #
+        if wrong_answer:
+            prnt(Fore.RED, 'Invalid option. Enter number from 1-4')
+            wrong_answer = False
+
+        user_option = inpt(Fore.GREEN, 'select your option: ')  ## Input will always be str by default
+
+        if user_option == 'e' or user_option == 'E':
+            return
 
         if user_option == '1':
             list_down_recipe()
-            break
 
         elif user_option == '2':
             create_recipe()
-            break
-        else:
-            print("Invalid option. Exiting.")
 
-    # elif user_option == '3':
-    #     search_recipe()
-    #
-    # elif user_option == '4':
-    #     favorite_recipe()
+        elif user_option == '3':
+            search_recipe()
+
+        elif user_option == '4':
+            delete_recipe()
+
+        else:
+            wrong_answer = True
 
 
 if __name__ == "__main__":
     # welcome()
-    # main_menu()
-
-    list_down_recipe()
-    # data = [
-    #     ['Biryani', json.dumps({
-    #         'ingredients': ['Rice', 'Chawal', 'Oil'],
-    #         'method': ['Rice', 'Chawal', 'Oil']
-    #     })],
-    #     ['Hira', 27, 'Expert programmer']
-    # ]
-    # db.insert_data('abc', data)
-    # print(db.get_data('abc'))
+    main_menu()
