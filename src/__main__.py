@@ -49,7 +49,25 @@ def print_recipe(n):
 
 
 def list_down_recipe():
-    data = db.get_data('recipes')
+    is_wrong = False
+
+    while True:
+        #
+        prnt(Fore.CYAN, 'HERE ARE THE RECIPES!\n')
+        for index, row in enumerate(RECIPES):
+            prnt(Fore.BLUE, index, ' ', row[0])
+        prnt(Fore.LIGHTYELLOW_EX, 'Press r/R to return\n')
+
+        #
+        if is_wrong:
+            prnt(Fore.RED, 'Wrong selection')
+
+        #
+        user_input = str(inpt(Fore.GREEN, 'Provide response: '))
+
+        #
+        if user_input == 'r' or user_input == 'R':
+            return
 
     for row in data:
         print(row)
