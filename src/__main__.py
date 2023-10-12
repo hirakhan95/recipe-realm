@@ -1,27 +1,22 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
-    ]
+]
 
-CREDS = Credentials.from_service_account_file('creds.json')
+CREDS = Credentials.from_service_account_file('../creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('recipe_data')
-
-# recipes = SHEET.worksheet('recipes')
-# data = recipes.get_all_values()
-# print(data)
+DOC = GSPREAD_CLIENT.open('recipe_data')
 
 
 def welcome():
     user_name = str(input('Hey there! Enter your name: '))
     print(f"Welcome, {user_name} to the Recipe Realm!\nWhere Flavors Find a Home :)")
-
-welcome()
 
 
 def create_recipe():
@@ -53,19 +48,23 @@ def create_recipe():
     print(f'PREPARATION:\n{method_description}')
 
 
-def list_down_recipe(recipe_list):
-    return recipe_list
+def list_down_recipe():
+    data = DOC.worksheet('recipes').get_all_values()
+
+    for row in data:
+        print(row)
 
 
-def search_recipe():
-    user_string = str(input('What are you looking for? '))
-    if user_string == "pasta" or "Pasta":
-        print("hello")
-
-
-def favorite_recipe(fav_recipe):
-    return fav_recipe
-
+#
+# def search_recipe():
+#     user_string = str(input('What are you looking for? '))
+#     if user_string == "pasta" or "Pasta":
+#         print("hello")
+#
+#
+# def favorite_recipe(fav_recipe):
+#     return fav_recipe
+#
 
 def main_menu():
     print("""RECIPE REALM
@@ -74,18 +73,26 @@ def main_menu():
     3. Create Recipes   -- type 'create' to create the recipes
     4. Favorite Recipes -- type 'favorite' to heart the recipes
     """)
-    user_option = input('select your option: ')
-    if user_option == 'create':
+
+    # @Todo: Write all available functions in while loop
+
+    user_option = input('select your option: ') ## Input will always be str by default
+
+    if user_option == '3':
         create_recipe()
 
-    elif user_option == 'list':
+    elif user_option == '2':
         list_down_recipe()
 
-    elif user_option == 'search':
-        search_recipe()
+    # elif user_option == 'search':
+    #     search_recipe()
+    #
+    # elif user_option == 'favorite' or 'favourite':
+    #     favorite_recipe()
 
-    elif user_option == 'favorite' or 'favourite':
-        favorite_recipe()
 
+if __name__ == "__main__":
+    # welcome()
+    # main_menu()
 
-main_menu()
+    list_down_recipe()
