@@ -53,6 +53,10 @@ def create_recipe():
     print(f'PREPARATION:\n{method_description}')
 
 
+def list_down_recipe(recipe_list):
+    return recipe_list
+
+
 def main_menu():
     print("""RECIPE REALM
     1. Search Recipes   -- type 'search' to search the recipes
@@ -63,5 +67,9 @@ def main_menu():
     user_option = input('select your option: ')
     if user_option == 'create':
         create_recipe()
+
+    elif user_option == 'list':
+        list_down_recipe()
+
 
 main_menu()
