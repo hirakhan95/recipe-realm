@@ -71,13 +71,13 @@ def main_menu():
 
         if user_option == '1':
             list_down_recipe()
+            break
 
         elif user_option == '2':
             create_recipe()
-
+            break
         else:
             print("Invalid option. Exiting.")
-            break
 
     # elif user_option == '3':
     #     search_recipe()
