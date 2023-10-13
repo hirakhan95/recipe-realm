@@ -134,7 +134,12 @@ def main_menu():
         prnt_new_page()
         prnt(Fore.CYAN, 'MAIN MENU')
         print('')
-        prnt(Fore.BLUE, "1. List Recipes\n2. Create Recipes\n3. Search Recipes\n4. Delete Recipes")
+        prnt(Fore.BLUE, "1. List Recipes\n"
+                        "2. Create Recipes\n"
+                        "3. Search Recipes\n"
+                        "4. Delete Recipes")
+
+        prnt(Fore.CYAN, "Press s/S to Save All")
 
         prnt(Fore.LIGHTYELLOW_EX, 'Press e/E to Exit\n')
 
@@ -160,12 +165,18 @@ def main_menu():
         elif user_option == '4':
             delete_recipe()
 
+        elif user_option == 's' or user_option == 'S':
+            save_recipe()
+
         else:
             wrong_answer = True
 
 
-def delete_recipe():
+def save_recipe():
+    db.insert_data('recipes', RECIPES)
 
+
+def delete_recipe():
     wrong_answer = False
     while True:
         prnt_new_page()
@@ -191,7 +202,6 @@ def delete_recipe():
             # validating if the user input is within the list
             if user_input >= 0 and user_input < len(RECIPES):
                 del RECIPES[user_input]
-                db.insert_data('recipes', RECIPES)
                 wrong_answer = False
 
             else:
@@ -201,6 +211,5 @@ def delete_recipe():
 
 
 if __name__ == "__main__":
-    # welcome()
-    #main_menu()
-    delete_recipe()
+    welcome()
+    main_menu()
