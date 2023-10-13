@@ -50,7 +50,7 @@ def print_recipe(n):
     # start a while loop
     while True:
 
-        # print recipe Recipe name, Author name, Ingredients, Preparation
+        # print Recipe name, Author name, Ingredients, Preparation
         prnt_new_page()
 
         prnt(Fore.CYAN, f'{recipe[0]} Recipe')
@@ -80,7 +80,6 @@ def print_recipe(n):
         is_wrong = True
 
 
-
 def list_down_recipe():
     is_wrong = False
 
@@ -92,11 +91,11 @@ def list_down_recipe():
             prnt(Fore.BLUE, index, ' ', row[0])
         prnt(Fore.LIGHTYELLOW_EX, 'Press r/R to return\n')
 
-        #
+        # if the selection is wrong
         if is_wrong:
             prnt(Fore.RED, 'Wrong selection')
 
-        #
+        # user response
         user_input = str(inpt(Fore.GREEN, 'Provide response: '))
 
         #
@@ -104,10 +103,10 @@ def list_down_recipe():
             return
 
         try:
-            #
+            # Converting user input into integer
             user_input = int(user_input)
 
-            #
+            # Validating if the user input is within the selection
             if user_input >= 0 and user_input < len(RECIPES):
                 print_recipe(user_input)
                 is_wrong = False
@@ -125,17 +124,12 @@ def search_recipe():
     pass
 
 
-def delete_recipe():
-    pass
-
-
 def main_menu():
-
     wrong_answer = False
     while True:
-        # print new page ---done
-        # remove break --done
-        # @take input 1 2 3 4 for search, list, create, delete -- done
+        # print new page
+        # remove break
+        # take input 1 2 3 4 for search, list, create, delete
         # take an input from user r or R to exit from function
         prnt_new_page()
         prnt(Fore.CYAN, 'MAIN MENU')
@@ -170,6 +164,43 @@ def main_menu():
             wrong_answer = True
 
 
+def delete_recipe():
+
+    wrong_answer = False
+    while True:
+        prnt_new_page()
+        prnt(Fore.MAGENTA, 'DELETE RECIPES!\n')
+        for index, value in enumerate(RECIPES):
+            prnt(Fore.BLUE, index, ' ', value[0])
+
+        prnt(Fore.LIGHTYELLOW_EX, 'Press r/R to return\n')
+
+        if wrong_answer:
+            prnt(Fore.RED, 'Wrong selection')
+
+        user_input = inpt(Fore.GREEN, 'Provide response: ')
+
+        # r/R to go back to the main menu
+        if user_input == 'r' or user_input == 'R':
+            return
+
+        try:
+            # converting user input into integer
+            user_input = int(user_input)
+
+            # validating if the user input is within the list
+            if user_input >= 0 and user_input < len(RECIPES):
+                del RECIPES[user_input]
+                db.insert_data('recipes', RECIPES)
+                wrong_answer = False
+
+            else:
+                wrong_answer = True
+        except ValueError as e:
+            wrong_answer = True
+
+
 if __name__ == "__main__":
     # welcome()
-    main_menu()
+    #main_menu()
+    delete_recipe()
