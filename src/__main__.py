@@ -6,6 +6,9 @@ USER_NAME = None
 ADMIN_PASSWORD = 'RecipeRealm'
 
 
+def login():
+    global USER_NAME
+    USER_NAME = inpt(Fore.GREEN, 'Hey there! Enter your name: ')
 
 def welcome():
     user_name = str(input('Hey there! Enter your name: '))
