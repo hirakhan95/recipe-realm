@@ -46,13 +46,8 @@ def main_menu():
         elif user_option == '4':
             delete_recipe()
 
-        # Explicit save functionality
-        # elif user_option == 's' or user_option == 'S':
-        #     save_recipe()
-
         else:
             wrong_answer = True
-
 
 
 if __name__ == "__main__":
