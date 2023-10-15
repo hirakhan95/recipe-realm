@@ -1,22 +1,7 @@
 import src.sheet_db as db
 from src.utils import Fore, prnt, inpt, prnt_new_page
 
-RECIPES = db.get_data('recipes')
-USER_NAME = None
-ADMIN_PASSWORD = 'RecipeRealm'
-
-
-def login():
-    global USER_NAME
-    USER_NAME = inpt(Fore.GREEN, 'Hey there! Enter your name: ')
-
-    while USER_NAME == 'admin':
-        password = inpt(Fore.GREEN, 'Enter Admin Password: ')
-        if password == ADMIN_PASSWORD:
-            break
-        prnt(Fore.RED, 'Incorrect Password!')
-
-    prnt(Fore.MAGENTA, f"Welcome, {USER_NAME} to the Recipe Realm!\nWhere Flavors Find a Home :)")
+from .features.login import login
 
 
 def create_recipe():
@@ -149,7 +134,7 @@ def update_single_recipe(recipe) -> list:
         prnt(Fore.MAGENTA, f'UPDATE "{recipe[0]}" RECIPE!\n')
 
         prnt(Fore.BLUE, 'What do you want to update?\n'
-              '1.Recipe Name\n2.Ingredients\n3.Preparation')
+                        '1.Recipe Name\n2.Ingredients\n3.Preparation')
         prnt(Fore.LIGHTYELLOW_EX, 's/S to save the changes: ')
 
         user_input = inpt(Fore.GREEN, 'Select what you want to update: ')
@@ -370,6 +355,6 @@ def delete_recipe():
 
 if __name__ == "__main__":
     login()
-    # main_menu()
+    main_menu()
     # create_recipe()
-    update_recipe()
+    # update_recipe()
