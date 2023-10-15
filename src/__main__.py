@@ -1,19 +1,8 @@
 import src.sheet_db as db
 from src.utils import Fore, prnt, inpt, prnt_new_page
 
-from .features import login, list_down_recipe, delete_recipe
+from .features import login, list_down_recipe, delete_recipe, create_recipe, update_recipe
 
-
-RECIPES = db.get_data('recipes')
-USER_NAME = None
-ADMIN_PASSWORD = 'RecipeRealm'
-
-
-
-
-# Explicit save functionality
-# def save_recipe():
-#     db.insert_data('recipes', RECIPES)
 
 def main_menu():
     wrong_answer = False
