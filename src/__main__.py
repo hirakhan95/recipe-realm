@@ -20,32 +20,46 @@ def login():
 
 
 def create_recipe():
-    """ For Ingredients
-    """
-    print('Enter ingredients with correct measurements. Type "done" when done!')
-    string_list = []
+    """ For Recipe Name """
     while True:
-        ingredients = str(input())
-        string_list.append(ingredients)
-
-        if ingredients == 'done':
+        recipe_name = inpt(Fore.GREEN, 'Enter Recipe Name: ')
+        if recipe_name not in [row[0] for row in RECIPES]:
+            print('Thank you. Enter ingredients with correct measurements. Press Enter when done!')
             break
-        list_of_ingredients = ' \n'.join(string_list)
+        else:
+            print('Recipe already exists! Enter Recipe Name Again. ')
 
-    """ For Preparation
+    """ For Ingredients """
+    ingredients_list = []
+    index = 1
+    while True:
+        ingredient_input = input(f'Enter Ingredient {index} or r/R to end: ')
+        index += 1
+
+        if ingredient_input == 'r' or ingredient_input == 'R':
+            break
+
+        ingredients_list.append(ingredient_input)
+
+    """ 
+    For Preparation
     """
     print('Enter Preparation method. Press Enter when done!')
-    method_list = []
+    preparation_list = []
+    index = 1
     while True:
-        preparation = str(input())
-        method_list.append(preparation)
+        preparation_input = input(f'Enter Preparation step {index} or r/R to end: ')
+        index += 1
 
-        if preparation == '':
+        if preparation_input == 'r' or preparation_input == 'R':
             break
-        method_description = ' \n'.join(method_list)
 
-    print(f'INGREDIENTS:\n{list_of_ingredients}\n')
-    print(f'PREPARATION:\n{method_description}')
+        preparation_list.append(preparation_input)
+
+    list_to_insert = [recipe_name, USER_NAME, ingredients_list, preparation_list]
+    RECIPES.append(list_to_insert)
+    print('Updating database...')
+    db.insert_data('recipes', RECIPES)
 
 
 def print_recipe(n):
