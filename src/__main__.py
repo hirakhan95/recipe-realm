@@ -134,6 +134,10 @@ def search_recipe():
     pass
 
 
+# Explicit save functionality
+# def save_recipe():
+#     db.insert_data('recipes', RECIPES)
+
 def main_menu():
     wrong_answer = False
     while True:
@@ -149,7 +153,8 @@ def main_menu():
                         "3. Search Recipes\n"
                         "4. Delete Recipes")
 
-        prnt(Fore.CYAN, "Press s/S to Save All")
+        # Explicit save functionality
+        # prnt(Fore.CYAN, "Press s/S to Save All")
 
         prnt(Fore.LIGHTYELLOW_EX, 'Press e/E to Exit\n')
 
@@ -175,15 +180,12 @@ def main_menu():
         elif user_option == '4':
             delete_recipe()
 
-        elif user_option == 's' or user_option == 'S':
-            save_recipe()
+        # Explicit save functionality
+        # elif user_option == 's' or user_option == 'S':
+        #     save_recipe()
 
         else:
             wrong_answer = True
-
-
-def save_recipe():
-    db.insert_data('recipes', RECIPES)
 
 
 def delete_recipe():
@@ -222,6 +224,7 @@ def delete_recipe():
 
                 if USER_NAME == value[1] or USER_NAME == 'admin':
                     del RECIPES[user_input]
+                    db.insert_data('recipes', RECIPES)  # Remove for Explicit save functionality
                     wrong_answer = False
                     unauthorize = False
 
