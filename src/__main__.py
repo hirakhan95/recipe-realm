@@ -2,6 +2,9 @@ import src.sheet_db as db
 from src.utils import Fore, prnt, inpt, prnt_new_page
 
 RECIPES = db.get_data('recipes')
+USER_NAME = None
+ADMIN_PASSWORD = 'RecipeRealm'
+
 
 
 def welcome():
