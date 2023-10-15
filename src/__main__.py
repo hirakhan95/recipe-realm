@@ -235,8 +235,7 @@ def delete_recipe():
 
                 # Checks if user name matches author name or if it is admin
                 # If it is not do not delete
-
-                if USER_NAME == value[1] or USER_NAME == 'admin':
+                if USER_NAME == RECIPES[user_input][1] or USER_NAME == 'admin':
                     del RECIPES[user_input]
                     db.insert_data('recipes', RECIPES)  # Remove for Explicit save functionality
                     wrong_answer = False
