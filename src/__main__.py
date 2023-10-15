@@ -52,7 +52,7 @@ def print_recipe(n):
     """
 
     :param n: list
-    :return: sring
+    :return: string
     """
     recipe = RECIPES[n]
     is_wrong = False
