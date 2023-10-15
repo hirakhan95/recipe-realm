@@ -10,9 +10,13 @@ def login():
     global USER_NAME
     USER_NAME = inpt(Fore.GREEN, 'Hey there! Enter your name: ')
 
-def welcome():
-    user_name = str(input('Hey there! Enter your name: '))
-    print(f"Welcome, {user_name} to the Recipe Realm!\nWhere Flavors Find a Home :)")
+    while USER_NAME == 'admin':
+        password = inpt(Fore.GREEN, 'Enter Admin Password: ')
+        if password == ADMIN_PASSWORD:
+            break
+        prnt(Fore.RED, 'Incorrect Password!')
+
+    prnt(Fore.MAGENTA, f"Welcome, {USER_NAME} to the Recipe Realm!\nWhere Flavors Find a Home :)")
 
 
 def create_recipe():
@@ -217,5 +221,5 @@ def delete_recipe():
 
 
 if __name__ == "__main__":
-    welcome()
+    login()
     main_menu()
