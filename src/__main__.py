@@ -188,6 +188,8 @@ def save_recipe():
 
 def delete_recipe():
     wrong_answer = False
+    unauthorize = False
+
     while True:
         prnt_new_page()
         prnt(Fore.MAGENTA, 'DELETE RECIPES!\n')
@@ -198,6 +200,9 @@ def delete_recipe():
 
         if wrong_answer:
             prnt(Fore.RED, 'Wrong selection')
+
+        if unauthorize:
+            prnt(Fore.RED, 'You are not authorized to do that!')
 
         user_input = inpt(Fore.GREEN, 'Provide response: ')
 
@@ -211,13 +216,26 @@ def delete_recipe():
 
             # validating if the user input is within the list
             if user_input >= 0 and user_input < len(RECIPES):
-                del RECIPES[user_input]
-                wrong_answer = False
+
+                # Checks if user name matches author name or if it is admin
+                # If it is not do not delete
+
+                if USER_NAME == value[1] or USER_NAME == 'admin':
+                    del RECIPES[user_input]
+                    wrong_answer = False
+                    unauthorize = False
+
+                else:
+                    wrong_answer = False
+                    unauthorize = True
 
             else:
                 wrong_answer = True
+                unauthorize = False
+
         except ValueError as e:
             wrong_answer = True
+            unauthorize = False
 
 
 if __name__ == "__main__":
