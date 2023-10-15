@@ -1,9 +1,9 @@
 from src.utils import Fore, prnt, inpt, prnt_new_page
+from src.globals import USER_NAME, ADMIN_PASSWORD
 
 
 def login():
     global USER_NAME
-    global ADMIN_PASSWORD
 
     USER_NAME = inpt(Fore.GREEN, 'Hey there! Enter your name: ')
 
