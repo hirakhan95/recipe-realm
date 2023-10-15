@@ -2,9 +2,10 @@ import src.sheet_db as db
 from src.utils import Fore, prnt, inpt, prnt_new_page
 
 from .features import login, list_down_recipe, delete_recipe, create_recipe, update_recipe
+from .globals import StateVariables
 
 
-def main_menu():
+def main_menu(state_variables):
     wrong_answer = False
     while True:
         # print new page
@@ -17,7 +18,7 @@ def main_menu():
         prnt(Fore.BLUE, "1. List Recipes\n"
                         "2. Create Recipe\n"
                         "3. Update Recipe\n"
-                        "4. Delete Recipes")
+                        "4. Delete Recipe")
 
         # Explicit save functionality
         # prnt(Fore.CYAN, "Press s/S to Save All")
@@ -35,23 +36,24 @@ def main_menu():
             return
 
         if user_option == '1':
-            list_down_recipe()
+            list_down_recipe(state_variables)
 
         elif user_option == '2':
-            create_recipe()
+            create_recipe(state_variables)
 
         elif user_option == '3':
-            update_recipe()
+            update_recipe(state_variables)
 
         elif user_option == '4':
-            delete_recipe()
+            delete_recipe(state_variables)
 
         else:
             wrong_answer = True
 
 
 if __name__ == "__main__":
-    login()
-    main_menu()
+    state_variables = StateVariables()
+    login(state_variables)
+    main_menu(state_variables)
     # create_recipe()
     # update_recipe()

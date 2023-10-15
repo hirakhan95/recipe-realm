@@ -1,13 +1,13 @@
+import src.sheet_db as db
 from src.utils import Fore, prnt, inpt, prnt_new_page
-from src.globals import RECIPES, USER_NAME
 
 
-def create_recipe():
+def create_recipe(state_variables):
     """ For Recipe Name """
     while True:
         prnt_new_page()
         recipe_name = inpt(Fore.GREEN, 'Enter Recipe Name: ')
-        if recipe_name not in [row[0] for row in RECIPES]:
+        if recipe_name not in [row[0] for row in state_variables.RECIPES]:
             print('Thank you. Enter ingredients with correct measurements. Press Enter when done!')
             break
         else:
@@ -40,7 +40,7 @@ def create_recipe():
 
         preparation_list.append(preparation_input)
 
-    list_to_insert = [recipe_name, USER_NAME, ingredients_list, preparation_list]
-    RECIPES.append(list_to_insert)
+    list_to_insert = [recipe_name, state_variables.USER_NAME, ingredients_list, preparation_list]
+    state_variables.RECIPES.append(list_to_insert)
     print('Updating database...')
-    db.insert_data('recipes', RECIPES)
+    db.insert_data('recipes', state_variables.RECIPES)

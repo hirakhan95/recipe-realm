@@ -1,15 +1,15 @@
+import src.sheet_db as db
 from src.utils import Fore, prnt, inpt, prnt_new_page
-from src.globals import RECIPES, USER_NAME
 
 
-def delete_recipe():
+def delete_recipe(state_variables):
     wrong_answer = False
     unauthorize = False
 
     while True:
         prnt_new_page()
         prnt(Fore.MAGENTA, 'DELETE RECIPES!\n')
-        for index, value in enumerate(RECIPES):
+        for index, value in enumerate(state_variables.RECIPES):
             prnt(Fore.BLUE, index, ' ', value[0])
 
         prnt(Fore.LIGHTYELLOW_EX, 'Press r/R to return\n')
@@ -31,13 +31,15 @@ def delete_recipe():
             user_input = int(user_input)
 
             # validating if the user input is within the list
-            if user_input >= 0 and user_input < len(RECIPES):
+            if user_input >= 0 and user_input < len(state_variables.RECIPES):
 
                 # Checks if user name matches author name or if it is admin
                 # If it is not do not delete
-                if USER_NAME == RECIPES[user_input][1] or USER_NAME == 'admin':
-                    del RECIPES[user_input]
-                    db.insert_data('recipes', RECIPES)  # Remove for Explicit save functionality
+                if state_variables.USER_NAME == state_variables.RECIPES[user_input][
+                    1] or state_variables.USER_NAME == 'admin':
+                    del state_variables.RECIPES[user_input]
+                    db.insert_data('recipes',
+                                   state_variables.RECIPES)  # Remove for Explicit save functionality
                     wrong_answer = False
                     unauthorize = False
 

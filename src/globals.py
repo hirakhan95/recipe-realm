@@ -1,5 +1,10 @@
 import src.sheet_db as db
 
-RECIPES = db.get_data('recipes')
-USER_NAME = None
-ADMIN_PASSWORD = 'RecipeRealm'
+
+class StateVariables:
+
+    def __init__(self):
+        self.RECIPES = db.get_data('recipes')
+        self.USER_NAME = None
+        self.ADMIN_PASSWORD = 'RecipeRealm'
+

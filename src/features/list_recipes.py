@@ -1,14 +1,13 @@
 from src.utils import Fore, prnt, inpt, prnt_new_page
-from src.globals import RECIPES
 
 
-def print_recipe(n):
+def print_recipe(state_variables, n):
     """
 
     :param n: list
     :return: string
     """
-    recipe = RECIPES[n]
+    recipe = state_variables.RECIPES[n]
     is_wrong = False
 
     # start a while loop
@@ -44,14 +43,14 @@ def print_recipe(n):
         is_wrong = True
 
 
-def list_down_recipe():
+def list_down_recipe(state_variables):
     is_wrong = False
 
     while True:
         prnt_new_page()
         #
         prnt(Fore.CYAN, 'HERE ARE THE RECIPES!\n')
-        for index, row in enumerate(RECIPES):
+        for index, row in enumerate(state_variables.RECIPES):
             prnt(Fore.BLUE, index, ' ', row[0])
         prnt(Fore.LIGHTYELLOW_EX, 'Press r/R to return\n')
 
@@ -71,8 +70,8 @@ def list_down_recipe():
             user_input = int(user_input)
 
             # Validating if the user input is within the selection
-            if user_input >= 0 and user_input < len(RECIPES):
-                print_recipe(user_input)
+            if user_input >= 0 and user_input < len(state_variables.RECIPES):
+                print_recipe(state_variables, user_input)
                 is_wrong = False
 
             else:

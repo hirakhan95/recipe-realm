@@ -1,5 +1,5 @@
+import src.sheet_db as db
 from src.utils import Fore, prnt, inpt, prnt_new_page
-from src.globals import RECIPES, USER_NAME
 
 
 def update_single_recipe(recipe) -> list:
@@ -63,14 +63,14 @@ def update_single_recipe(recipe) -> list:
     return recipe
 
 
-def update_recipe():
+def update_recipe(state_variables):
     wrong_answer = False
     unauthorize = False
 
     while True:
         prnt_new_page()
         prnt(Fore.MAGENTA, 'UPDATE RECIPES!\n')
-        for index, value in enumerate(RECIPES):
+        for index, value in enumerate(state_variables.RECIPES):
             prnt(Fore.BLUE, index, ' ', value[0])
 
         prnt(Fore.LIGHTYELLOW_EX, 'Press r/R to return\n')
@@ -92,15 +92,17 @@ def update_recipe():
             user_input = int(user_input)
 
             # validating if the user input is within the list
-            if user_input >= 0 and user_input < len(RECIPES):
+            if user_input >= 0 and user_input < len(state_variables.RECIPES):
 
                 # Checks if user name matches author name or if it is admin
                 # If it is not do not delete
-                if USER_NAME == RECIPES[user_input][1] or USER_NAME == 'admin':
+                if state_variables.USER_NAME == state_variables.RECIPES[user_input][
+                    1] or state_variables.USER_NAME == 'admin':
 
-                    recipe = update_single_recipe(RECIPES[user_input])
-                    RECIPES[user_input] = recipe
-                    db.insert_data('recipes', RECIPES)
+                    recipe = update_single_recipe(state_variables.RECIPES[user_input])
+                    state_variables.RECIPES[user_input] = recipe
+                    print('Updating database...')
+                    db.insert_data('recipes', state_variables.RECIPES)
 
                     wrong_answer = False
                     unauthorize = False
@@ -116,8 +118,3 @@ def update_recipe():
         except ValueError as e:
             wrong_answer = True
             unauthorize = False
-
-    list_to_insert = [update_recipe_name, USER_NAME, update_ingredients_name, update_prep_name]
-    RECIPES.update(list_to_insert)
-    print('Updating database...')
-    db.insert_data('recipes', RECIPES)
