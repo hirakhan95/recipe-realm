@@ -1,5 +1,5 @@
-from .features import login, main_menu
-from .globals import StateVariables
+from src.features import main_menu, login
+from src.globals import StateVariables
 
 if __name__ == "__main__":
     state_variables = StateVariables()
