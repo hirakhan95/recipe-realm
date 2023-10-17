@@ -76,12 +76,12 @@ Extensive testing ensures a seamless experience:
 ### Run program
 
 Using the following command you can easily start the program
-```python
+```shell
 python run.py
 ```
 
 It can also be executed using module command easily
-```python
+```shell
 python -m src
 ```
 
