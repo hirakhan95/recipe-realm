@@ -13,8 +13,6 @@ Live application is available on this link [Recipe Realm](https://https://recipe
 
 ![demo](./assets/images/all-devices-white.png)
 
-## How to Use
-
 Recipe Organizer offers a simple and intuitive interface to organize your recipes.
 
 1. **List Recipes**: View all the recipes in one place.
@@ -65,6 +63,27 @@ Extensive testing ensures a seamless experience:
 - Manual testing of each feature for functionality and user experience in my terminal and Code Institute Heroku terminal.
 - Conducted user tests to gather feedback and further refine the application.
 - Passed the code through PEP8 Linter and confirmed there are no problems.
+
+## How to Use
+
+### Install Requirements
+1. Install Python 3.8+
+2. Install requirements.txt
+   ```shell
+   pip install -r requirements.txt
+    ```
+
+### Run program
+
+Using the following command you can easily start the program
+```python
+python run.py
+```
+
+It can also be executed using module command easily
+```python
+python -m src
+```
 
 ## Bugs
 
