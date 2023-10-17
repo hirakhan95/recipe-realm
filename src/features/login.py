@@ -2,6 +2,10 @@ from src.utils import Fore, prnt, inpt, prnt_new_page
 
 
 def login(state_variables):
+    prnt_new_page()
+
+    prnt(Fore.CYAN, 'Login to Realm!', '\n')
+
     state_variables.USER_NAME = inpt(Fore.GREEN, 'Hey there! Enter your name: ')
 
     while state_variables.USER_NAME == 'admin':

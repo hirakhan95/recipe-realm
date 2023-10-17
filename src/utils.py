@@ -1,7 +1,6 @@
 import os
 import platform
-from colorama import Fore, init
-import curses
+from colorama import Fore
 
 
 def prnt(color, *args, **kwargs):
@@ -14,14 +13,9 @@ def inpt(color: Fore, *args, **kwargs):
 
 
 def prnt_new_page():
+    platform.system('cls' if os.name == 'nt' else 'clear')
 
-    if platform.system() == "Windows":
-        os.system('clear')
-    else:
-        scrn = curses.initscr()
-        scrn.clear()
-        curses.endwin()
-
+    print('\n'*400)
     print(Fore.YELLOW + '#' * 80)
     print(Fore.YELLOW + '#' * 80)
     print(Fore.YELLOW + '#', ' ' * 76, '#')
