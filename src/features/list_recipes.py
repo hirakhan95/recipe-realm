@@ -2,11 +2,6 @@ from src.utils import Fore, prnt, inpt, prnt_new_page, prnt_with_columns
 
 
 def print_recipe(state_variables, n):
-    """
-
-    :param n: list
-    :return: string
-    """
     recipe = state_variables.RECIPES[n]
     is_wrong = False
 
@@ -36,7 +31,7 @@ def print_recipe(state_variables, n):
             prnt(Fore.RED, '\n', 'Wrong selection')
 
         # take an input from user r or R to exit from function
-        user_input = inpt(Fore.GREEN, 'Enter r\R to return: ')
+        user_input = inpt(Fore.GREEN, 'Enter r/R to return: ')
         if user_input == 'r' or user_input == 'R':
             return
 
@@ -71,11 +66,11 @@ def list_down_recipe(state_variables):
             user_input = int(user_input)
 
             # Validating if the user input is within the selection
-            if user_input >= 0 and user_input < len(state_variables.RECIPES):
+            if 0 <= user_input < len(state_variables.RECIPES):
                 print_recipe(state_variables, user_input)
                 is_wrong = False
 
             else:
                 is_wrong = True
-        except ValueError as e:
+        except ValueError as _:
             is_wrong = True

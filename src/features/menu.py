@@ -1,6 +1,5 @@
-from src.utils import Fore, prnt, inpt, prnt_new_page
-
 from src.features import list_down_recipe, delete_recipe, create_recipe, update_recipe
+from src.utils import Fore, prnt, inpt, prnt_new_page
 
 
 def main_menu(state_variables):
@@ -28,9 +27,11 @@ def main_menu(state_variables):
             prnt(Fore.RED, 'Invalid option. Enter number from 1-4')
             wrong_answer = False
 
-        user_option = inpt(Fore.GREEN, 'select your option: ')  ## Input will always be str by default
+        user_option = inpt(Fore.GREEN, 'select your option: ')
 
         if user_option == 'e' or user_option == 'E':
+            print()
+            prnt(Fore.LIGHTWHITE_EX, 'Thank you for using Recipe Realm! Come back Soon.')
             return
 
         if user_option == '1':

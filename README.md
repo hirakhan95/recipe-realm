@@ -9,6 +9,11 @@ A hierarchical structure is maintained wherein only the admin has the privileges
 However, if the user is not an admin, they can only modify or delete their own recipes, ensuring the integrity of other 
 users' recipes.
 
+Credentials for admin is as follows:
+
+- Name: admin
+- Password: RecipeRealm
+
 ## How to Use
 
 Recipe Organizer offers a simple and intuitive interface to organize your recipes.
@@ -36,7 +41,6 @@ Recipe Organizer offers a simple and intuitive interface to organize your recipe
 
 ## Data Model
 
-
 ## Testing
 
 Extensive testing ensures a seamless experience:
@@ -45,6 +49,7 @@ Extensive testing ensures a seamless experience:
 - Conducted user tests to gather feedback and further refine the application.
 
 ## Bugs
+
 
 
 ### Solved Bugs

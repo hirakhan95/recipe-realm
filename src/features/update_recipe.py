@@ -17,7 +17,6 @@ def update_single_recipe(recipe, state_variables) -> list:
         user_input = inpt(Fore.GREEN, 'Select what you want to update: ')
         print()
 
-
         if wrong_answer:
             prnt(Fore.RED, 'Wrong selection')
 

@@ -39,7 +39,7 @@ def insert_data(sheet_name, data):
 
     try:
         sheet = DOC.worksheet(sheet_name)
-    except:
+    except Exception as _:
         DOC.add_worksheet(sheet_name, 2000, 10)
         sheet = DOC.worksheet(sheet_name)
 

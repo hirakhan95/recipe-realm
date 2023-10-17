@@ -7,4 +7,3 @@ class StateVariables:
         self.RECIPES = db.get_data('recipes')
         self.USER_NAME = None
         self.ADMIN_PASSWORD = 'RecipeRealm'
-
