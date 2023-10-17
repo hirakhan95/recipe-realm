@@ -13,14 +13,38 @@ Live application is available on this link [Recipe Realm](https://https://recipe
 
 ![demo](./assets/images/all-devices-white.png)
 
-Recipe Organizer offers a simple and intuitive interface to organize your recipes.
+Recipe Realm offers a simple and intuitive interface to organize your recipes.
 
 1. **List Recipes**: View all the recipes in one place.
 2. **Create Recipe**: Add a new recipe, complete with recipe name, ingredients and preparation.
 3. **Update Recipe**: Want to change something in existing dish? Easily modify any part of your recipe.
 4. **Delete Recipe**: Clear out recipes you no longer need with just one click.
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+  * [Flowchart](#flowchart)
+  * [Login Page](#login-page)
+  * [Main Menu](#main-menu)
+  * [List Recipes](#list-recipes)
+  * [Create Recipe](#create-recipe)
+  * [Update Recipe](#update-recipe)
+  * [Delete Recipe](#delete-recipe)
+- [Testing](#testing)
+- [How to Use](#how-to-use)
+  * [Install Requirements](#install-requirements)
+  * [Run program](#run-program)
+- [Bugs](#bugs)
+  * [Solved Bugs](#solved-bugs)
+  * [Remaining Bugs](#remaining-bugs)
+- [Deployment](#deployment)
+- [Credits](#credits)
+
 ## Features
+
+### Flowchart
+
+![list](./assets/images/flowchart.jpeg)
 
 ### Login Page
 - Description of the application is available on this page
