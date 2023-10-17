@@ -9,12 +9,9 @@ A hierarchical structure is maintained wherein only the admin has the privileges
 However, if the user is not an admin, they can only modify or delete their own recipes, ensuring the integrity of other 
 users' recipes.
 
+Live application is available on this link [Recipe Realm](https://https://recipe-realm-project-f9c4db7b71c2.herokuapp.com/)
+
 ![demo](./assets/images/all-devices-white.png)
-
-Credentials for admin is as follows:
-
-- Name: admin
-- Password: RecipeRealm
 
 ## How to Use
 
@@ -73,12 +70,16 @@ Extensive testing ensures a seamless experience:
 
 ### Solved Bugs
 - Update function was not callable. I explicitly imported update recipe function in menu.py
+- Sometimes limit cross from google sheet APIs. This was resolved by try catch sleep in while loop.
+- Shutil doesnt create better columns understanding for text center resolved by providing columns number to center itself.
+- HTML doesnt take pictures from assets. Resolved by providing cdn links.
 
 ## Remaining Bugs
-- No bugs remaining
+- Clear screen function does also show previous displayed results in screen on scroll
+- Javascript terminal sometimes stucks with throwing any error on inputs
 
 ## Deployment
-The project was deployed on Github. The following steps were taken for deployment:
+The project was deployed on Heroku. The following steps were taken for deployment:
 
 - Add dependencies to requirements.txt file with command "pip3 freeze > requirements.txt"
 - Commit and push to GitHub
