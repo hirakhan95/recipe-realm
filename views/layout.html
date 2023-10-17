@@ -8,10 +8,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.js"></script>
-    <title>Python Terminal by Code Institute</title>
+    <!-- Added web hosted favicon -->
+    <link rel='icon' sizes="any"
+        href="https://cdn.gencraft.com/prod/user/ecc8c3c7-2c11-4fff-88b7-0126237928d6/d79c3b0c-d844-4e43-88eb-81a9aae12ca3/images/image0_0.jpg?Expires=1697628779&Signature=bOINUBoLxJwXIQ-U1Uomx-SvOQUx08FmrS-hq1ATsaPKUfujmvbykokPSnAjKvdd6PN7N5d-wdbNPNuTk27rdewjDuG84WUX77MWGfDX0scxgi1yzrlSj2vhd6VlDCDHYhpZn~hhCnOVsENJ0ceZ9-NMCS3gUESDNom6gSvwE2o8ws9X8Q2pV9qO3ts7yukMKcZYSYAncOriIml9ochIXiBFy1QfE2Sx6Nah06bB6etWhFheuz6eYleD~PjFMCvyyh~Bhn1WmFT2eKIWZqUO~NN2gGElDWGK7ogfbHUisJT-8S4HhF1Rj9VvgopEgdjcIaZ21d0-B9fm4EkSX~SeJQ__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
+    <title>Recipe Realm</title>
     <style>
+        /*Enabbles vertical scrolling*/
+        #terminal {
+    overflow-y: auto; 
+}
         body {
             font-family: Arial;
+            margin: 0;
+            overflow:scroll;
+        }
+
+        /*center the terminal and button*/
+        #main-container {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 98%;
+            padding-bottom: 20px;
+        }
+
+        /*style background image*/
+        #background {
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: -10;
+            background-image: url(https://cdn.gencraft.com/prod/user/b2f5cb13-c7f3-4839-a104-363eed95f88b/3c29229d-9880-4a49-a9b8-b70afa0154a6/images/image1_0.jpg?Expires=1703423577&Signature=dNlghsNanWUURNGKISFgi6MXxCJKnNbsAR4RpfuY5pIZrTU9sUvCONTPeQrAJV9fwe-jYRENRpvutF~BLFbZH5HeeqdSDrgJY~cR6CHRHQapbrdgHnTpsKPkKEMukmrJDbvCOK6nIIaDTuZLgE94D4Dr5GtWZqxRXv0DVisZxxT2JHgwdlbyZs2rTzv5oxrr~PChoFg1NhmDmCev9PEcyhjzj9lEE28dATFNeRP2Sir45rBO7kGEe7ZUvPWl5iOe3Q-07Z2LlmfIUj99u3HqcPqVuFtWBwezGzVna4KZxt1~D3OPIcUknNW6WigrWjsNbkPnXG9xXKsxVtRyb3e9qQ__&Key-Pair-Id=K3RDDB1TZ8BHT8);
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
         /**
@@ -168,6 +197,8 @@
     </style>
 </head>
 
-@{body}
+<body id="background">
+    <main id="main-container">@{body}</main>
+</body>
 
 </html>
