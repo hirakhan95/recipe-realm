@@ -1,6 +1,5 @@
 import os
 import math
-import shutil
 from colorama import Fore
 
 
@@ -23,8 +22,7 @@ def prnt_new_page(color=Fore.YELLOW, username=None):
 
     if username:
         text = f"User: {username}"
-        columns, _ = shutil.get_terminal_size((76, 20))
-        print(color + '#', text.center(columns), '#')
+        print(color + '#', text.center(76), '#')
 
     print(color + '#', ' ' * 76, '#')
     print(color + '#' * 80)
