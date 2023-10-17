@@ -7,7 +7,7 @@ def delete_recipe(state_variables):
     unauthorize = False
 
     while True:
-        prnt_new_page()
+        prnt_new_page(username=state_variables.USER_NAME)
         prnt(Fore.CYAN, 'DELETE RECIPES!\n')
 
         prnt_with_columns([i[0] for i in state_variables.RECIPES])

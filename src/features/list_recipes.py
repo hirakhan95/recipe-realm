@@ -14,7 +14,7 @@ def print_recipe(state_variables, n):
     while True:
 
         # print Recipe name, Author name, Ingredients, Preparation
-        prnt_new_page()
+        prnt_new_page(username=state_variables.USER_NAME)
 
         prnt(Fore.CYAN, f'{recipe[0]} Recipe')
         print('')
@@ -47,7 +47,7 @@ def list_down_recipe(state_variables):
     is_wrong = False
 
     while True:
-        prnt_new_page()
+        prnt_new_page(username=state_variables.USER_NAME)
         #
         prnt(Fore.CYAN, 'HERE ARE THE RECIPES!\n')
 

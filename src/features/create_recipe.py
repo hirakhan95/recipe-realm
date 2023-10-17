@@ -4,15 +4,20 @@ from src.utils import Fore, prnt, inpt, prnt_new_page
 
 def create_recipe(state_variables):
     """ For Recipe Name """
+
+    prnt_new_page(username=state_variables.USER_NAME)
+    prnt(Fore.CYAN, 'CREATE YOUR RECIPE HERE!\n')
+
     while True:
-        prnt_new_page()
-        prnt(Fore.CYAN, 'CREATE YOUR RECIPE HERE!\n')
+
         recipe_name = inpt(Fore.LIGHTWHITE_EX, 'Enter Recipe Name: ')
         if recipe_name not in [row[0] for row in state_variables.RECIPES]:
-            prnt(Fore.GREEN,'Thank you. Enter ingredients with correct measurements. Press Enter when done!')
+            print()
+            prnt(Fore.GREEN, 'Thank you. Enter ingredients with correct measurements. Press Enter when done!')
             break
         else:
-            print('Recipe already exists! Enter Recipe Name Again. ')
+            print()
+            prnt(Fore.RED, 'Recipe already exists! Enter New Recipe. ')
 
     """ For Ingredients """
     ingredients_list = []
@@ -29,6 +34,7 @@ def create_recipe(state_variables):
     """ 
     For Preparation
     """
+    print()
     prnt(Fore.GREEN, 'Enter Preparation method. Press Enter when done!')
     preparation_list = []
     index = 1

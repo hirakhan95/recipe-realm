@@ -2,12 +2,12 @@ import src.sheet_db as db
 from src.utils import Fore, prnt, inpt, prnt_new_page, prnt_with_columns
 
 
-def update_single_recipe(recipe) -> list:
+def update_single_recipe(recipe, state_variables) -> list:
     wrong_answer = False
 
     while True:
-        prnt_new_page()
-        prnt(Fore.MAGENTA, f'UPDATE "{recipe[0]}" RECIPE!\n')
+        prnt_new_page(username=state_variables.USER_NAME)
+        prnt(Fore.CYAN, f'UPDATE "{recipe[0]}" RECIPE!\n')
 
         prnt(Fore.BLUE, 'What do you want to update?\n'
                         '1.Recipe Name\n2.Ingredients\n3.Preparation')
@@ -71,7 +71,7 @@ def update_recipe(state_variables):
     unauthorize = False
 
     while True:
-        prnt_new_page()
+        prnt_new_page(username=state_variables.USER_NAME)
         prnt(Fore.CYAN, 'UPDATE RECIPES!\n')
 
         prnt_with_columns([i[0] for i in state_variables.RECIPES])
@@ -103,7 +103,7 @@ def update_recipe(state_variables):
                 if state_variables.USER_NAME == state_variables.RECIPES[user_input][
                     1] or state_variables.USER_NAME == 'admin':
 
-                    recipe = update_single_recipe(state_variables.RECIPES[user_input])
+                    recipe = update_single_recipe(state_variables.RECIPES[user_input], state_variables)
                     state_variables.RECIPES[user_input] = recipe
                     print()
                     prnt(Fore.LIGHTYELLOW_EX, 'Updating database...')
