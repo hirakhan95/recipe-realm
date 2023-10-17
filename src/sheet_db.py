@@ -1,4 +1,5 @@
 import gspread
+import time
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -57,7 +58,14 @@ def insert_data(sheet_name, data):
 
     # Insert in to sheet
     for row in data_in_insert:
-        sheet.append_row(row)
+        insert_completed = False
+
+        while not insert_completed:
+            try:
+                sheet.append_row(row)
+                insert_completed = True
+            except Exception as _:
+                time.sleep(10)
 
 
 def clear_data(sheet):
