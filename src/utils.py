@@ -16,6 +16,7 @@ def prnt_new_page():
 
     # Print the header
     print('\n'*200)
+    print(os.name)
     print(Fore.YELLOW + '#' * 80)
     print(Fore.YELLOW + '#' * 80)
     print(Fore.YELLOW + '#', ' ' * 76, '#')
