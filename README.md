@@ -9,7 +9,7 @@ A hierarchical structure is maintained wherein only the admin has the privileges
 However, if the user is not an admin, they can only modify or delete their own recipes, ensuring the integrity of other 
 users' recipes.
 
-Live application is available on this link [Recipe Realm](https://https://recipe-realm-project-f9c4db7b71c2.herokuapp.com/)
+Live application is available on this link [Recipe Realm](https://recipe-realm-project-f9c4db7b71c2.herokuapp.com/)
 
 ![demo](./assets/images/all-devices-white.png)
 
@@ -49,35 +49,29 @@ Recipe Realm offers a simple and intuitive interface to organize your recipes.
 ### Login Page
 - Description of the application is available on this page
 - user can enter here their name
-
 ![list](./assets/images/login.png)
 
 ### Main Menu
 - Main menu where user can go to whatever option they want to go
 - user can also press E to end the application
-
 ![list](./assets/images/menu.png)
 
 ### List Recipes
 - Browse through all the dishes.
 - Simply enter the number to quickly see the recipe of your desired dish.
-  
 ![list](./assets/images/list.png)
 
 ### Create Recipe
 - Add recipe name, ingredients, and detailed cooking steps.
 - Your recipe will be automatically saved.
-
 ![list](./assets/images/create.png)
 
 ### Update Recipe
 - Edit any part of the recipe, whether it's the name of the recipe, ingredients, or the cooking process.
-
-![list](./assets/images/update.png)
+[list](./assets/images/update.png)
 
 ### Delete Recipe
 - A simple one-click process to remove unwanted recipe.
-
 ![list](./assets/images/delete.png)
 
 ## Testing
