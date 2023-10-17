@@ -1,4 +1,4 @@
-from src.utils import Fore, prnt, inpt, prnt_new_page
+from src.utils import Fore, prnt, inpt, prnt_new_page, prnt_with_columns
 
 
 def print_recipe(state_variables, n):
@@ -50,8 +50,9 @@ def list_down_recipe(state_variables):
         prnt_new_page()
         #
         prnt(Fore.CYAN, 'HERE ARE THE RECIPES!\n')
-        for index, row in enumerate(state_variables.RECIPES):
-            prnt(Fore.BLUE, index, ' ', row[0])
+
+        prnt_with_columns([i[0] for i in state_variables.RECIPES])
+
         prnt(Fore.LIGHTYELLOW_EX, 'Press r/R to return\n')
 
         # if the selection is wrong

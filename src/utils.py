@@ -1,4 +1,5 @@
 import os
+import math
 from colorama import Fore
 
 
@@ -11,15 +12,28 @@ def inpt(color: Fore, *args, **kwargs):
     return input(*args, **kwargs)
 
 
-def prnt_new_page():
+def prnt_new_page(color=Fore.YELLOW):
     os.system('cls' if os.name == 'nt' else 'clear')
 
-    print('\n'*400)
-    print(Fore.YELLOW + '#' * 80)
-    print(Fore.YELLOW + '#' * 80)
-    print(Fore.YELLOW + '#', ' ' * 76, '#')
-    print(Fore.YELLOW + '#', ' ' * 31, 'RECIPE REALM', ' ' * 31, '#')
-    print(Fore.YELLOW + '#', ' ' * 76, '#')
-    print(Fore.YELLOW + '#' * 80)
-    print(Fore.YELLOW + '#' * 80)
+    print('\n' * 400)
+    print(color + '#' * 80)
+    print(color + '#' * 80)
+    print(color + '#', ' ' * 76, '#')
+    print(color + '#', ' ' * 31, 'RECIPE REALM', ' ' * 31, '#')
+    print(color + '#', ' ' * 76, '#')
+    print(color + '#' * 80)
+    print(color + '#' * 80)
     print('\n')
+
+
+def prnt_with_columns(data, color=Fore.BLUE, columns=3):
+    rows = math.ceil(len(data) / columns)
+
+    i = 0
+    for row in range(rows):
+        temp = []
+        for j in range(columns):
+            if i < len(data):
+                temp.append(f"{i:3d} {data[i]: <25}")
+                i += 1
+        prnt(color, *temp)
