@@ -10,7 +10,7 @@ def delete_recipe(state_variables):
         prnt_new_page(username=state_variables.USER_NAME)
         prnt(Fore.CYAN, 'DELETE RECIPES!\n')
 
-        prnt_with_columns([i[0] for i in state_variables.RECIPES])
+        prnt_with_columns([f'{i[0]} ({i[1]})' for i in state_variables.RECIPES])
         print()
 
         prnt(Fore.LIGHTYELLOW_EX, 'Press r/R to return\n')
