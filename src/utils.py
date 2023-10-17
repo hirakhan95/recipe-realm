@@ -18,6 +18,8 @@ def prnt_new_page():
     else:
         os.system('clear')
 
+    print('something')
+
     print(Fore.YELLOW + '#' * 80)
     print(Fore.YELLOW + '#' * 80)
     print(Fore.YELLOW + '#', ' ' * 76, '#')
