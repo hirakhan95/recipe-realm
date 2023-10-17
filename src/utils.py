@@ -15,7 +15,6 @@ def inpt(color: Fore, *args, **kwargs):
 def prnt_new_page(color=Fore.YELLOW):
     os.system('cls' if os.name == 'nt' else 'clear')
 
-    print('\n' * 400)
     print(color + '#' * 80)
     print(color + '#' * 80)
     print(color + '#', ' ' * 76, '#')
