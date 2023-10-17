@@ -39,26 +39,41 @@ Recipe Organizer offers a simple and intuitive interface to organize your recipe
 ### Delete Recipe
 - A simple one-click process to remove unwanted recipe.
 
-## Data Model
-
 ## Testing
 
 Extensive testing ensures a seamless experience:
 
-- Manual testing of each feature for functionality and user experience.
+- Manual testing of each feature for functionality and user experience in my terminal and Code Institute Heroku terminal.
 - Conducted user tests to gather feedback and further refine the application.
+- Passed the code through PEP8 Linter and confirmed there are no problems.
 
 ## Bugs
 
-
-
 ### Solved Bugs
+- Update function was not callable. I explicitly imported update recipe function in menu.py
 
-### Remaining Bugs
+## Remaining Bugs
+- No bugs remaining
 
 ## Deployment
+The project was deployed on Github. The following steps were taken for deployment:
+
+- Add dependencies to requirements.txt file with command "pip3 freeze > requirements.txt"
+- Commit and push to GitHub
+- Go to the Heroku Dashboard
+- Click "Create new app"
+- Name app and select location
+- Add Config Vars for Creds and Port in Settings tab
+- Add the buildbacks to Python and NodeJS in respective order
+- Select appropriate deployment method, GitHub
+- Connect to Github and link to repository
+- Enable automatic deployment and/or deploy manually
+- Click on Deploy
 
 ## Credits
 
 - All the culinary enthusiasts for their valuable feedback.
+- Code institute Love Sandwich's walk through project for step by step explanation.
+- Various online free resources to have the idea of the project.
+- Gencraft.com for the background image.
 
