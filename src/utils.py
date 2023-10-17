@@ -15,8 +15,10 @@ def inpt(color: Fore, *args, **kwargs):
 def prnt_new_page():
     if platform.system() == 'Windows':
         os.system('cls')
+        print(platform.system())
     else:
         os.system('clear')
+        print(platform.system())
 
     print('something')
 
