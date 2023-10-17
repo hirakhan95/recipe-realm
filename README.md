@@ -1,32 +1,58 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome,
+# Recipe Realm
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Recipe Realm is a Python terminal application that operates within the mock terminal of Heroku. Users can effectively 
+manage recipes by viewing others', creating their own, updating them, and deleting them according to their specific 
+needs. 
 
-## Reminders
+A hierarchical structure is maintained wherein only the admin has the privileges to perform all functionalities.
+However, if the user is not an admin, they can only modify or delete their own recipes, ensuring the integrity of other 
+users' recipes.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## How to Use
 
-## Creating the Heroku app
+Recipe Organizer offers a simple and intuitive interface to organize your recipes.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+1. **List Recipes**: View all the recipes in one place.
+2. **Create Recipe**: Add a new recipe, complete with recipe name, ingredients and preparation.
+3. **Update Recipe**: Want to change something in existing dish? Easily modify any part of your recipe.
+4. **Delete Recipe**: Clear out recipes you no longer need with just one click.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Features
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### List Recipes
+- Browse through all the dishes.
+- Simply enter the number to quickly see the recipe of your desired dish.
+  
+### Create Recipe
+- Add recipe name, ingredients, and detailed cooking steps.
+- Your recipe will be automatically saved.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+### Update Recipe
+- Edit any part of the recipe, whether it's the name of the recipe, ingredients, or the cooking process.
 
-Connect your GitHub repository and deploy as normal.
+### Delete Recipe
+- A simple one-click process to remove unwanted recipe.
 
-## Constraints
+## Data Model
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
----
+## Testing
 
-Happy coding!
+Extensive testing ensures a seamless experience:
+
+- Manual testing of each feature for functionality and user experience.
+- Conducted user tests to gather feedback and further refine the application.
+
+## Bugs
+
+### Solved Bugs
+
+### Remaining Bugs
+
+## Deployment
+
+## Credits
+
+- All the culinary enthusiasts for their valuable feedback.
+
