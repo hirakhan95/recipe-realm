@@ -1,5 +1,6 @@
 import os
 import math
+import shutil
 from colorama import Fore
 
 
@@ -12,13 +13,19 @@ def inpt(color: Fore, *args, **kwargs):
     return input(*args, **kwargs)
 
 
-def prnt_new_page(color=Fore.YELLOW):
+def prnt_new_page(color=Fore.YELLOW, username=None):
     os.system('cls' if os.name == 'nt' else 'clear')
 
     print(color + '#' * 80)
     print(color + '#' * 80)
     print(color + '#', ' ' * 76, '#')
     print(color + '#', ' ' * 31, 'RECIPE REALM', ' ' * 31, '#')
+
+    if username:
+        text = f"User: {username}"
+        columns, _ = shutil.get_terminal_size((76, 20))
+        print(color + '#', text.center(columns), '#')
+
     print(color + '#', ' ' * 76, '#')
     print(color + '#' * 80)
     print(color + '#' * 80)

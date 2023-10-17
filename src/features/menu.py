@@ -10,7 +10,7 @@ def main_menu(state_variables):
         # remove break
         # take input 1 2 3 4 for search, list, create, delete
         # take an input from user r or R to exit from function
-        prnt_new_page()
+        prnt_new_page(username=state_variables.USER_NAME)
         prnt(Fore.CYAN, 'MAIN MENU')
         print('')
         prnt(Fore.BLUE, "1. List Recipes\n"
