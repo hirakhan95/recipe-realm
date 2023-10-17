@@ -3,10 +3,10 @@ from src.utils import Fore, prnt, inpt, prnt_new_page
 
 def login(state_variables):
     prnt_new_page()
-    prnt(Fore.CYAN, "Welcome to Recipe Realm! It's the perfect place for everyone who loves food. Here, you can find "
-                    "new recipes to try or share your own favorite dishes with others. Whether you're a seasoned cook "
-                    "or just starting out in the kitchen, Recipe Realm is here to help you explore and enjoy the world "
-                    "of cooking. Dive in and let's get cooking!", '\n')
+    prnt(Fore.CYAN, "Welcome to Recipe Realm! It's the perfect place for everyone who loves food.\n Here, you can find "
+                    "new recipes to try or share your own favorite dishes with \nothers. Whether you're a seasoned cook "
+                    "or just starting out in the kitchen, Recipe\nRealm is here to help you explore and enjoy the world "
+                    "of cooking. Dive in\nandlet's get cooking!",'\n')
 
     prnt(Fore.LIGHTYELLOW_EX, 'Login to Realm!', '\n')
 
