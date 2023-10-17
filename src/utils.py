@@ -20,6 +20,7 @@ def prnt_new_page():
     else:
         scrn = curses.initscr()
         scrn.clear()
+        curses.endwin()
 
     print(Fore.YELLOW + '#' * 80)
     print(Fore.YELLOW + '#' * 80)
