@@ -1,5 +1,4 @@
 import os
-import platform
 from colorama import Fore
 
 
@@ -13,7 +12,7 @@ def inpt(color: Fore, *args, **kwargs):
 
 
 def prnt_new_page():
-    platform.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
     print('\n'*400)
     print(Fore.YELLOW + '#' * 80)
