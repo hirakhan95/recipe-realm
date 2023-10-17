@@ -59,10 +59,8 @@ def update_single_recipe(recipe, state_variables) -> list:
             else:
                 wrong_answer = True
 
-        except ValueError as e:
+        except ValueError as _:
             wrong_answer = True
-
-    return recipe
 
 
 def update_recipe(state_variables):
@@ -95,12 +93,12 @@ def update_recipe(state_variables):
             user_input = int(user_input)
 
             # validating if the user input is within the list
-            if user_input >= 0 and user_input < len(state_variables.RECIPES):
+            if 0 <= user_input < len(state_variables.RECIPES):
 
                 # Checks if user name matches author name or if it is admin
                 # If it is not do not delete
-                if state_variables.USER_NAME == state_variables.RECIPES[user_input][
-                    1] or state_variables.USER_NAME == 'admin':
+                if state_variables.USER_NAME == state_variables.RECIPES[user_input][1] \
+                        or state_variables.USER_NAME == 'admin':
 
                     recipe = update_single_recipe(state_variables.RECIPES[user_input], state_variables)
                     state_variables.RECIPES[user_input] = recipe
@@ -119,6 +117,6 @@ def update_recipe(state_variables):
                 wrong_answer = True
                 unauthorize = False
 
-        except ValueError as e:
+        except ValueError as _:
             wrong_answer = True
             unauthorize = False

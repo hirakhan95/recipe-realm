@@ -1,4 +1,5 @@
-from src.features import list_down_recipe, delete_recipe, create_recipe, update_recipe
+from src.features import list_down_recipe, delete_recipe, create_recipe
+from src.features.update_recipe import update_recipe
 from src.utils import Fore, prnt, inpt, prnt_new_page
 
 
