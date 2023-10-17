@@ -11,9 +11,12 @@ def update_single_recipe(recipe) -> list:
 
         prnt(Fore.BLUE, 'What do you want to update?\n'
                         '1.Recipe Name\n2.Ingredients\n3.Preparation')
+        print()
         prnt(Fore.LIGHTYELLOW_EX, 's/S to save the changes: ')
 
         user_input = inpt(Fore.GREEN, 'Select what you want to update: ')
+        print()
+
 
         if wrong_answer:
             prnt(Fore.RED, 'Wrong selection')
@@ -69,7 +72,7 @@ def update_recipe(state_variables):
 
     while True:
         prnt_new_page()
-        prnt(Fore.MAGENTA, 'UPDATE RECIPES!\n')
+        prnt(Fore.CYAN, 'UPDATE RECIPES!\n')
 
         prnt_with_columns([i[0] for i in state_variables.RECIPES])
         print()
@@ -102,7 +105,8 @@ def update_recipe(state_variables):
 
                     recipe = update_single_recipe(state_variables.RECIPES[user_input])
                     state_variables.RECIPES[user_input] = recipe
-                    print('Updating database...')
+                    print()
+                    prnt(Fore.LIGHTYELLOW_EX, 'Updating database...')
                     db.insert_data('recipes', state_variables.RECIPES)
 
                     wrong_answer = False

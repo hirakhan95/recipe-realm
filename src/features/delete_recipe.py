@@ -8,7 +8,7 @@ def delete_recipe(state_variables):
 
     while True:
         prnt_new_page()
-        prnt(Fore.MAGENTA, 'DELETE RECIPES!\n')
+        prnt(Fore.CYAN, 'DELETE RECIPES!\n')
 
         prnt_with_columns([i[0] for i in state_variables.RECIPES])
         print()
@@ -39,6 +39,8 @@ def delete_recipe(state_variables):
                 if state_variables.USER_NAME == state_variables.RECIPES[user_input][
                     1] or state_variables.USER_NAME == 'admin':
                     del state_variables.RECIPES[user_input]
+                    print()
+                    prnt(Fore.LIGHTYELLOW_EX, 'Updating database...')
                     db.insert_data('recipes',
                                    state_variables.RECIPES)  # Remove for Explicit save functionality
                     wrong_answer = False

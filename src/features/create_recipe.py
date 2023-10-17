@@ -6,9 +6,10 @@ def create_recipe(state_variables):
     """ For Recipe Name """
     while True:
         prnt_new_page()
-        recipe_name = inpt(Fore.GREEN, 'Enter Recipe Name: ')
+        prnt(Fore.CYAN, 'CREATE YOUR RECIPE HERE!\n')
+        recipe_name = inpt(Fore.LIGHTWHITE_EX, 'Enter Recipe Name: ')
         if recipe_name not in [row[0] for row in state_variables.RECIPES]:
-            print('Thank you. Enter ingredients with correct measurements. Press Enter when done!')
+            prnt(Fore.GREEN,'Thank you. Enter ingredients with correct measurements. Press Enter when done!')
             break
         else:
             print('Recipe already exists! Enter Recipe Name Again. ')
@@ -17,7 +18,7 @@ def create_recipe(state_variables):
     ingredients_list = []
     index = 1
     while True:
-        ingredient_input = input(f'Enter Ingredient {index} or r/R to end: ')
+        ingredient_input = inpt(Fore.LIGHTWHITE_EX, f'Enter Ingredient {index} or r/R to end: ')
         index += 1
 
         if ingredient_input == 'r' or ingredient_input == 'R':
@@ -28,11 +29,11 @@ def create_recipe(state_variables):
     """ 
     For Preparation
     """
-    print('Enter Preparation method. Press Enter when done!')
+    prnt(Fore.GREEN, 'Enter Preparation method. Press Enter when done!')
     preparation_list = []
     index = 1
     while True:
-        preparation_input = input(f'Enter Preparation step {index} or r/R to end: ')
+        preparation_input = inpt(Fore.LIGHTWHITE_EX, f'Enter Preparation step {index} or r/R to end: ')
         index += 1
 
         if preparation_input == 'r' or preparation_input == 'R':
@@ -42,5 +43,6 @@ def create_recipe(state_variables):
 
     list_to_insert = [recipe_name, state_variables.USER_NAME, ingredients_list, preparation_list]
     state_variables.RECIPES.append(list_to_insert)
-    print('Updating database...')
+    print()
+    prnt(Fore.LIGHTYELLOW_EX, 'Updating database...')
     db.insert_data('recipes', state_variables.RECIPES)
