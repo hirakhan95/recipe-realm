@@ -1,5 +1,5 @@
 import src.sheet_db as db
-from src.utils import Fore, prnt, inpt, prnt_new_page
+from src.utils import Fore, prnt, inpt, prnt_new_page, prnt_with_columns
 
 
 def delete_recipe(state_variables):
@@ -9,8 +9,9 @@ def delete_recipe(state_variables):
     while True:
         prnt_new_page()
         prnt(Fore.MAGENTA, 'DELETE RECIPES!\n')
-        for index, value in enumerate(state_variables.RECIPES):
-            prnt(Fore.BLUE, index, ' ', value[0])
+
+        prnt_with_columns([i[0] for i in state_variables.RECIPES])
+        print()
 
         prnt(Fore.LIGHTYELLOW_EX, 'Press r/R to return\n')
 

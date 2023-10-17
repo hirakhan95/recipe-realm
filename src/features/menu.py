@@ -20,7 +20,7 @@ def main_menu(state_variables):
 
         # Explicit save functionality
         # prnt(Fore.CYAN, "Press s/S to Save All")
-
+        print()
         prnt(Fore.LIGHTYELLOW_EX, 'Press e/E to Exit\n')
 
         #

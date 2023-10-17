@@ -52,7 +52,7 @@ def list_down_recipe(state_variables):
         prnt(Fore.CYAN, 'HERE ARE THE RECIPES!\n')
 
         prnt_with_columns([i[0] for i in state_variables.RECIPES])
-
+        print()
         prnt(Fore.LIGHTYELLOW_EX, 'Press r/R to return\n')
 
         # if the selection is wrong
