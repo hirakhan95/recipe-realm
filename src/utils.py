@@ -34,6 +34,6 @@ def prnt_with_columns(data, color=Fore.BLUE, columns=3):
         temp = []
         for j in range(columns):
             if i < len(data):
-                temp.append(f"{i:3d} {data[i]: <25}")
+                temp.append(f"{i: 3d} {data[i]: <23}")
                 i += 1
         prnt(color, *temp)
