@@ -13,7 +13,10 @@ def inpt(color: Fore, *args, **kwargs):
 
 
 def prnt_new_page():
-    platform.system('cls' if os.name == 'nt' else 'clear')
+    if platform.system() == 'Windows':
+        os.system('cls')
+    else:
+        os.system('clear')
 
     print(Fore.YELLOW + '#' * 80)
     print(Fore.YELLOW + '#' * 80)
