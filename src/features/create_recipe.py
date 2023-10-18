@@ -22,8 +22,10 @@ def create_recipe(state_variables):
     """ For Ingredients """
     ingredients_list = []
     index = 1
+    print()
+    prnt(Fore.GREEN, 'Enter r/R to end: ')
     while True:
-        ingredient_input = inpt(Fore.LIGHTWHITE_EX, f'Enter Ingredient {index} or r/R to end: ')
+        ingredient_input = inpt(Fore.LIGHTWHITE_EX, f'Enter Ingredient {index}: ')
         index += 1
 
         if ingredient_input == 'r' or ingredient_input == 'R':
@@ -38,8 +40,10 @@ def create_recipe(state_variables):
     prnt(Fore.GREEN, 'Enter Preparation method. Press Enter when done!')
     preparation_list = []
     index = 1
+    print()
+    prnt(Fore.GREEN, 'Enter r/R to end: ')
     while True:
-        preparation_input = inpt(Fore.LIGHTWHITE_EX, f'Enter Preparation step {index} or r/R to end: ')
+        preparation_input = inpt(Fore.LIGHTWHITE_EX, f'Enter Preparation step {index}: ')
         index += 1
 
         if preparation_input == 'r' or preparation_input == 'R':
@@ -50,5 +54,5 @@ def create_recipe(state_variables):
     list_to_insert = [recipe_name, state_variables.USER_NAME, ingredients_list, preparation_list]
     state_variables.RECIPES.append(list_to_insert)
     print()
-    prnt(Fore.LIGHTYELLOW_EX, 'Updating database...')
+    prnt(Fore.LIGHTYELLOW_EX, 'Please wait while we are creating your recipe...')
     db.insert_data('recipes', state_variables.RECIPES)

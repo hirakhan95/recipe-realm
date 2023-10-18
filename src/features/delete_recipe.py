@@ -21,7 +21,7 @@ def delete_recipe(state_variables):
         if unauthorize:
             prnt(Fore.RED, 'You are not authorized to do that!')
 
-        user_input = inpt(Fore.GREEN, 'Provide response: ')
+        user_input = inpt(Fore.GREEN, 'Select a recipe number to delete: ')
 
         # r/R to go back to the main menu
         if user_input == 'r' or user_input == 'R':
@@ -40,7 +40,7 @@ def delete_recipe(state_variables):
                         state_variables.USER_NAME == 'admin':
                     del state_variables.RECIPES[user_input]
                     print()
-                    prnt(Fore.LIGHTYELLOW_EX, 'Updating database...')
+                    prnt(Fore.LIGHTYELLOW_EX, 'Deleting Recipe...')
                     db.insert_data('recipes',
                                    state_variables.RECIPES)  # Remove for Explicit save functionality
                     wrong_answer = False

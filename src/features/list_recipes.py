@@ -31,7 +31,7 @@ def print_recipe(state_variables, n):
             prnt(Fore.RED, '\n', 'Wrong selection')
 
         # take an input from user r or R to exit from function
-        user_input = inpt(Fore.GREEN, 'Enter r/R to return: ')
+        user_input = inpt(Fore.LIGHTYELLOW_EX, 'Enter r/R to return: ')
         if user_input == 'r' or user_input == 'R':
             return
 
@@ -55,7 +55,7 @@ def list_down_recipe(state_variables):
             prnt(Fore.RED, 'Wrong selection')
 
         # user response
-        user_input = str(inpt(Fore.GREEN, 'Provide response: '))
+        user_input = str(inpt(Fore.GREEN, 'Select a number: '))
 
         #
         if user_input == 'r' or user_input == 'R':

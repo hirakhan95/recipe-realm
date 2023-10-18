@@ -113,7 +113,8 @@ python -m src
 
 ## Remaining Bugs
 - Clear screen function does also show previous displayed results in screen on scroll
-- Javascript terminal sometimes stucks with throwing any error on inputs
+- Javascript terminal sometimes stuck with throwing any error on inputs
+- On updating a single recipe if the wrong selection is made, the error message shows up after a correct entry. Only enter the correct value 
 
 ## Deployment
 The project was deployed on Heroku. The following steps were taken for deployment:

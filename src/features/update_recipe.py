@@ -32,13 +32,15 @@ def update_single_recipe(recipe, state_variables) -> list:
             if user_input in [1, 2, 3]:
 
                 if user_input == 1:
-                    update_recipe_name = input('Enter new recipe name:')
+                    update_recipe_name = inpt(Fore.LIGHTWHITE_EX, 'Enter new recipe name:')
                     recipe[0] = update_recipe_name
 
                 if user_input == 2:
                     ingredients_list = []
+                    print()
+                    prnt(Fore.GREEN, 'Enter r/R to end: ')
                     while True:
-                        update_ingredients_name = input('Enter updated ingredients or r/R to return: ')
+                        update_ingredients_name = inpt(Fore.LIGHTWHITE_EX, 'Enter updated ingredients: ')
                         if update_ingredients_name == 'r' or update_ingredients_name == 'R':
                             break
                         ingredients_list.append(update_ingredients_name)
@@ -47,8 +49,10 @@ def update_single_recipe(recipe, state_variables) -> list:
 
                 if user_input == 3:
                     preparation_list = []
+                    print()
+                    prnt(Fore.GREEN, 'Enter r/R to end: ')
                     while True:
-                        update_prep_name = input('Enter updated preparation or R to return: ')
+                        update_prep_name = inpt(Fore.LIGHTWHITE_EX, 'Enter updated preparation: ')
                         if update_prep_name == 'r' or update_prep_name == 'R':
                             break
                         preparation_list.append(update_prep_name)
@@ -82,7 +86,7 @@ def update_recipe(state_variables):
         if unauthorize:
             prnt(Fore.RED, 'You are not authorized to do that!')
 
-        user_input = inpt(Fore.GREEN, 'Select a recipe to update: ')
+        user_input = inpt(Fore.GREEN, 'Select recipe number to update: ')
 
         # r/R to go back to the main menu
         if user_input == 'r' or user_input == 'R':

@@ -28,7 +28,7 @@ def main_menu(state_variables):
             prnt(Fore.RED, 'Invalid option. Enter number from 1-4')
             wrong_answer = False
 
-        user_option = inpt(Fore.GREEN, 'select your option: ')
+        user_option = inpt(Fore.GREEN, 'Select number: ')
 
         if user_option == 'e' or user_option == 'E':
             print()
